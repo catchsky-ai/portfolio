@@ -1,0 +1,40 @@
+/* AGGRESSIVE BORDER REMOVAL FOR TECH STACK SECTION */
+
+/* Target ALL possible container elements */
+.techstack,
+.techstack *,
+.tech-stack-container,
+#techstack-container,
+.bouncing-balls-container,
+.unified-physics-container,
+.physics-canvas,
+canvas,
+.section-container {
+  border: 0 !important;
+  border: none !important;
+  outline: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+}
+
+/* Remove any pseudo-element borders */
+.unified-physics-container::before,
+.unified-physics-container::after,
+.techstack::before,
+.techstack::after {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Force remove on all canvas elements in tech stack */
+.techstack canvas,
+.techstack canvas:hover,
+.techstack canvas:focus,
+.techstack canvas:active {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}

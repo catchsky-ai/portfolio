@@ -1,0 +1,241 @@
+.techstack {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 40px;
+  background: var(--backgroundColor);
+  position: relative;
+  overflow: hidden;
+}
+
+.techstack::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 50%, rgba(108, 99, 255, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(139, 127, 255, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+  animation: bgShift 20s ease-in-out infinite;
+}
+
+@keyframes bgShift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-5%, -5%) rotate(5deg); }
+}
+
+.techstack h2 {
+  font-size: 70px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  color: #ffffff;
+}
+
+.techstack h2 > span {
+  color: var(--accentColor);
+}
+
+.techstack-subtitle {
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  margin-bottom: 50px;
+  max-width: 700px;
+  position: relative;
+  z-index: 2;
+  display: none;
+}
+
+/* Unified physics container - ONE container for all balls */
+.unified-physics-container {
+  width: 100%;
+  max-width: 1400px;
+  position: relative;
+  background: transparent;
+  border-radius: 0;
+  padding: 20px;
+  overflow: hidden;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  position: relative;
+  z-index: 2;
+}
+
+.unified-physics-container::before {
+  display: none !important;
+}
+
+@keyframes containerGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+.physics-canvas {
+  width: 100%;
+  height: 650px;
+  cursor: grab;
+  border-radius: 0;
+  background: transparent;
+  position: relative;
+  display: block;
+  border: 0 !important;
+  border: none !important;
+  outline: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+}
+
+.physics-canvas:active {
+  cursor: grabbing;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 1400px) {
+  .techstack h2 {
+    font-size: 56px;
+  }
+
+  .unified-physics-container {
+    max-width: 1200px;
+  }
+
+  .physics-canvas {
+    height: 600px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .techstack {
+    padding: 80px 30px;
+  }
+
+  .techstack h2 {
+    font-size: 48px;
+  }
+
+  .physics-canvas {
+    height: 550px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .techstack {
+    padding: 70px 20px;
+  }
+
+  .techstack h2 {
+    font-size: 40px;
+  }
+
+  .techstack-subtitle {
+    font-size: 16px;
+    margin-bottom: 35px;
+  }
+
+  .unified-physics-container {
+    padding: 15px;
+    border-radius: 20px;
+  }
+
+  .physics-canvas {
+    height: 500px;
+    border-radius: 14px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .techstack {
+    padding: 60px 15px;
+  }
+
+  .techstack h2 {
+    font-size: 36px;
+  }
+
+  .techstack-subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  .unified-physics-container {
+    padding: 12px;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .physics-canvas {
+    height: 450px;
+    border-radius: 12px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .techstack h2 {
+    font-size: 32px;
+  }
+
+  .techstack-subtitle {
+    font-size: 13px;
+  }
+
+  .unified-physics-container {
+    padding: 10px;
+  }
+
+  .physics-canvas {
+    height: 400px;
+  }
+}
+
+/* Enhanced glassmorphism for modern browsers */
+@supports (backdrop-filter: blur(12px)) {
+  .unified-physics-container {
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none !important;
+    outline: none !important;
+  }
+}
+
+/* FINAL AGGRESSIVE BORDER REMOVAL - OVERRIDE EVERYTHING */
+.unified-physics-container,
+.unified-physics-container *,
+.techstack canvas,
+.physics-canvas {
+  border: 0 !important;
+  border-width: 0 !important;
+  border-style: none !important;
+  outline: 0 !important;
+  outline-width: 0 !important;
+  outline-style: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+}
+
+/* Remove borders from all states */
+.unified-physics-container:hover,
+.unified-physics-container:focus,
+.unified-physics-container:active,
+.physics-canvas:hover,
+.physics-canvas:focus,
+.physics-canvas:active {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+

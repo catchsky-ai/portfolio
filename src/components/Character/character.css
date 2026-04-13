@@ -1,0 +1,76 @@
+.character-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 95%;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.character-glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(108, 99, 255, 0.3) 0%, transparent 70%);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
+.profile-image {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+  animation: floatProfile 3s ease-in-out infinite;
+}
+
+@keyframes floatProfile {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive */
+@media only screen and (max-width: 1024px) {
+  .character-container {
+    height: 70%;
+  }
+
+  .character-glow {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .character-container {
+    height: 50%;
+  }
+
+  .character-glow {
+    width: 200px;
+    height: 200px;
+  }
+}
